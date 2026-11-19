@@ -4,11 +4,29 @@
     "appVersionSource": "remote"
   },
   "build": {
+    "base": {
+      "env": {
+        "EXPO_PUBLIC_EAS_OWNER": "raza-aslam",
+        "EXPO_PUBLIC_APP_SLUG": "raza-aslam",
+        "EXPO_PUBLIC_PROJECT_ID": "da80b820-d961-4b63-aa70-1646c1065cea",
+        "SENTRY_DISABLE_AUTO_UPLOAD": "true"
+      }
+    },
     "development": {
+      "extends": "base",
       "developmentClient": true,
       "distribution": "internal"
     },
+    "preview": {
+      "extends": "base",
+      "environment": "preview",
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    },
     "production": {
+      "extends": "base",
       "autoIncrement": true
     }
   },
