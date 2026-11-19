@@ -48,7 +48,7 @@ const completedInboundPayload = {
       extension: 'ogg',
       content_type: 'audio/opus',
       data_url:
-        'https://devi-dev.chatwoot.dev/rails/active_storage/blobs/redirect/abc/call-recording.ogg',
+        'https://devi-dev.channelx.au/rails/active_storage/blobs/redirect/abc/call-recording.ogg',
       thumb_url: '',
       file_size: 51769,
     },
@@ -93,7 +93,7 @@ describe('getVoiceCallDisplay', () => {
     });
     expect(display.recording).toEqual({
       dataUrl:
-        'https://devi-dev.chatwoot.dev/rails/active_storage/blobs/redirect/abc/call-recording.ogg',
+        'https://devi-dev.channelx.au/rails/active_storage/blobs/redirect/abc/call-recording.ogg',
       contentType: 'audio/opus',
       extension: 'ogg',
     });

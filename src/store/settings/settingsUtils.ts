@@ -11,7 +11,7 @@ export const handleApiError = (error: unknown, customErrorMsg?: string) => {
 const SCHEME = /^[a-z][a-z0-9+.-]*:\/\//i;
 
 /**
- * The host of a Chatwoot installation, including a port when one is given.
+ * The host of a ChannelX installation, including a port when one is given.
  *
  * The field takes a bare host, but a paste can carry a scheme, a path, a
  * trailing slash or surrounding whitespace. Parsing as a URL normalizes all of

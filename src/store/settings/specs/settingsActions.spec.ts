@@ -43,37 +43,37 @@ describe('setInstallationUrl', () => {
   });
 
   it('builds both URLs from the host', async () => {
-    const action = await setInstallationUrl('app.chatwoot.com');
+    const action = await setInstallationUrl('app.channelx.au');
 
     expect(action.payload).toEqual({
-      installationUrl: 'https://app.chatwoot.com/',
-      webSocketUrl: 'wss://app.chatwoot.com/cable',
-      baseUrl: 'app.chatwoot.com',
+      installationUrl: 'https://app.channelx.au/',
+      webSocketUrl: 'wss://app.channelx.au/cable',
+      baseUrl: 'app.channelx.au',
     });
   });
 
   it('keeps a pasted scheme out of the websocket URL', async () => {
-    const action = await setInstallationUrl('https://app.chatwoot.com');
+    const action = await setInstallationUrl('https://app.channelx.au');
 
     expect(action.payload).toEqual({
-      installationUrl: 'https://app.chatwoot.com/',
-      webSocketUrl: 'wss://app.chatwoot.com/cable',
-      baseUrl: 'app.chatwoot.com',
+      installationUrl: 'https://app.channelx.au/',
+      webSocketUrl: 'wss://app.channelx.au/cable',
+      baseUrl: 'app.channelx.au',
     });
   });
 
   it('keeps surrounding whitespace out of the websocket URL', async () => {
-    const action = await setInstallationUrl('   https://app.chatwoot.com');
+    const action = await setInstallationUrl('   https://app.channelx.au');
 
     expect(action.payload).toEqual({
-      installationUrl: 'https://app.chatwoot.com/',
-      webSocketUrl: 'wss://app.chatwoot.com/cable',
-      baseUrl: 'app.chatwoot.com',
+      installationUrl: 'https://app.channelx.au/',
+      webSocketUrl: 'wss://app.channelx.au/cable',
+      baseUrl: 'app.channelx.au',
     });
   });
 
   it('rejects a host holding whitespace without calling the server', async () => {
-    const action = await setInstallationUrl('app chatwoot.com');
+    const action = await setInstallationUrl('app channelx.au');
 
     expect(action.type).toBe('settings/setInstallationUrl/rejected');
     expect(SettingsService.verifyInstallationUrl).not.toHaveBeenCalled();

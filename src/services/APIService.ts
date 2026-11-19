@@ -30,7 +30,7 @@ const isForPreviousAccount = (url?: string): boolean => {
   );
 };
 
-const CLIENT_NAME = 'Chatwoot Mobile';
+const CLIENT_NAME = 'ChannelX Mobile';
 const CLIENT_VERSION = Constants.expoConfig?.version ?? 'unknown';
 
 function deviceHeaders(): Record<string, string> {

@@ -48,7 +48,7 @@ import { useRefsContext } from '@/context';
 import {
   AppearanceIcon,
   ChatIcon,
-  ChatwootIcon,
+  ChannelXIcon,
   NotificationIcon,
   PhoneOutlineIcon,
   SwitchIcon,
@@ -363,7 +363,7 @@ const SettingsScreen = () => {
     {
       hasChevron: true,
       title: i18n.t('SETTINGS.CHAT_WITH_US'),
-      icon: <ChatwootIcon />,
+      icon: <ChannelXIcon />,
       subtitle: '',
       subtitleType: 'light',
       onPressListItem: () => toggleWidget(true),

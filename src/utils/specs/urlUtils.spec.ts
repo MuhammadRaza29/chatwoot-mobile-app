@@ -23,21 +23,21 @@ describe('openURL', () => {
   });
 
   it('opens a web URL in the in-app browser', async () => {
-    await openURL({ URL: 'https://chatwoot.com' });
+    await openURL({ URL: 'https://channelx.au' });
 
-    expect(openBrowserAsync).toHaveBeenCalledWith('https://chatwoot.com');
+    expect(openBrowserAsync).toHaveBeenCalledWith('https://channelx.au');
     expect(openSystemURL).not.toHaveBeenCalled();
   });
 
   it('adds https to a scheme-less target', async () => {
-    await openURL({ URL: 'www.chatwoot.com' });
+    await openURL({ URL: 'www.channelx.au' });
 
-    expect(openBrowserAsync).toHaveBeenCalledWith('https://www.chatwoot.com');
+    expect(openBrowserAsync).toHaveBeenCalledWith('https://www.channelx.au');
   });
 
   it.each([
-    ['chatwoot.local:3000/path', 'https://chatwoot.local:3000/path'],
-    ['www.chatwoot.com:8443', 'https://www.chatwoot.com:8443'],
+    ['channelx.local:3000/path', 'https://channelx.local:3000/path'],
+    ['www.channelx.au:8443', 'https://www.channelx.au:8443'],
     ['localhost:3000', 'https://localhost:3000'],
     ['192.168.1.5:3000/inbox?tab=1', 'https://192.168.1.5:3000/inbox?tab=1'],
   ])('treats %s as a host and port, not a scheme', async (target, expected) => {
@@ -54,18 +54,18 @@ describe('openURL', () => {
   });
 
   it('hands a non-web scheme to the system handler', async () => {
-    await openURL({ URL: 'mailto:hello@chatwoot.com' });
+    await openURL({ URL: 'mailto:hello@channelx.au' });
 
     expect(openBrowserAsync).not.toHaveBeenCalled();
-    expect(openSystemURL).toHaveBeenCalledWith('mailto:hello@chatwoot.com');
+    expect(openSystemURL).toHaveBeenCalledWith('mailto:hello@channelx.au');
   });
 
   it('falls back to the system handler when the in-app browser fails', async () => {
     openBrowserAsync.mockRejectedValue(new Error('no activity found'));
 
-    await openURL({ URL: 'https://chatwoot.com' });
+    await openURL({ URL: 'https://channelx.au' });
 
-    expect(openSystemURL).toHaveBeenCalledWith('https://chatwoot.com');
+    expect(openSystemURL).toHaveBeenCalledWith('https://channelx.au');
     expect(showToast).not.toHaveBeenCalled();
   });
 
@@ -73,7 +73,7 @@ describe('openURL', () => {
     openBrowserAsync.mockRejectedValue(new Error('no activity found'));
     openSystemURL.mockRejectedValue(new Error('no activity found'));
 
-    await openURL({ URL: 'https://chatwoot.com' });
+    await openURL({ URL: 'https://channelx.au' });
 
     expect(showToast).toHaveBeenCalled();
   });

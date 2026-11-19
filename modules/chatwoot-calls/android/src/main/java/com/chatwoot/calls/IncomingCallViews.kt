@@ -329,7 +329,7 @@ internal class IncomingCallViews(private val context: Context) {
 
   companion object {
     const val BACKGROUND = "#F4F4F6"
-    private const val TITLE = "Chatwoot Audio"
+    private const val TITLE = "ChannelX Audio"
     private const val WASH = "#420880E7"
     private const val SURFACE = "#FFFFFF"
     private const val WHITE = "#FFFFFF"

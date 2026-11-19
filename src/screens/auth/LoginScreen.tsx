@@ -92,8 +92,8 @@ const LoginScreen = () => {
   };
 
   // TODO: Change this condition based on EE check
-  // Show SSO login button only if installation URL contains app.chatwoot.com
-  const showSsoLogin = installationUrl.includes('app.chatwoot.com');
+  // Show SSO login button only if installation URL contains app.channelx.au
+  const showSsoLogin = installationUrl.includes('app.channelx.au');
 
   const openResetPassword = () => {
     navigation.navigate('ResetPassword' as never);
