@@ -288,7 +288,7 @@ final class CallKitManager: NSObject {
     let providerName = dictionary["provider"] as? String ?? "whatsapp"
     // PushKit requires reporting while signed out.
     let caller = signedIn ? dictionary["caller"] as? [String: Any] ?? [:] : [:]
-    let callerName = caller["name"] as? String ?? (signedIn ? "Unknown caller" : "Chatwoot")
+    let callerName = caller["name"] as? String ?? (signedIn ? "Unknown caller" : "ChannelX")
     let inboxName = signedIn ? dictionary["inbox_name"] as? String ?? "" : ""
     let displayName = inboxName.isEmpty ? callerName : "\(callerName) · \(inboxName)"
     let handle = caller["phone"] as? String ?? callerName

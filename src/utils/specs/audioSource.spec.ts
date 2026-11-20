@@ -4,7 +4,7 @@ import {
   isUnsupportedIosContainerFormat,
 } from '@/utils/audioSource';
 
-const REDIRECT = 'https://app.chatwoot.com/rails/active_storage/blobs/redirect/abc123';
+const REDIRECT = 'https://app.channelx.au/rails/active_storage/blobs/redirect/abc123';
 
 describe('getUrlExtension', () => {
   it('reads the extension of the last path segment', () => {

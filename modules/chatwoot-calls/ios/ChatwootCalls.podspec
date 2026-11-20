@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name           = 'ChatwootCalls'
   s.version        = '1.0.0'
-  s.summary        = 'Native call layer for the Chatwoot mobile app'
-  s.description    = 'Twilio Voice media and audio routing for calls handled in the Chatwoot mobile app'
-  s.author         = 'Chatwoot'
+  s.summary        = 'Native call layer for the ChannelX mobile app'
+  s.description    = 'Twilio Voice media and audio routing for calls handled in the ChannelX mobile app'
+  s.author         = 'ChannelX'
   s.homepage       = 'https://github.com/chatwoot/chatwoot-mobile-app'
   s.platforms      = { :ios => '16.4' }
   s.source         = { git: '' }

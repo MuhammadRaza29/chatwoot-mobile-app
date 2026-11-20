@@ -42,7 +42,7 @@ describe('findConversationLinkFromPush', () => {
       primaryActorType: 'Conversation',
       primaryActor: { id: 14428 },
     };
-    const installationUrl = 'https://app.chatwoot.com';
+    const installationUrl = 'https://app.channelx.au';
     const transformedNotification = transformNotification(notification);
     const result = findConversationLinkFromPush({
       notification: transformedNotification,
@@ -50,7 +50,7 @@ describe('findConversationLinkFromPush', () => {
       currentAccountId: 1,
     });
     expect(result).toBe(
-      'https://app.chatwoot.com/app/accounts/1/conversations/14428/14902/Conversation',
+      'https://app.channelx.au/app/accounts/1/conversations/14428/14902/Conversation',
     );
   });
 
@@ -63,7 +63,7 @@ describe('findConversationLinkFromPush', () => {
       primaryActorType: 'Conversation',
       primaryActor: { id: 14428 },
     };
-    const installationUrl = 'https://app.chatwoot.com';
+    const installationUrl = 'https://app.channelx.au';
     const transformedNotification = transformNotification(notification);
     const result = findConversationLinkFromPush({
       notification: transformedNotification,
@@ -71,7 +71,7 @@ describe('findConversationLinkFromPush', () => {
       currentAccountId: 1,
     });
     expect(result).toBe(
-      'https://app.chatwoot.com/app/accounts/7/conversations/14428/14902/Conversation',
+      'https://app.channelx.au/app/accounts/7/conversations/14428/14902/Conversation',
     );
   });
 
@@ -83,7 +83,7 @@ describe('findConversationLinkFromPush', () => {
       primaryActorType: 'Conversation',
       primaryActor: { id: 14428 },
     };
-    const installationUrl = 'https://app.chatwoot.com';
+    const installationUrl = 'https://app.channelx.au';
     const transformedNotification = transformNotification(notification);
     const result = findConversationLinkFromPush({
       notification: transformedNotification,
@@ -91,7 +91,7 @@ describe('findConversationLinkFromPush', () => {
       currentAccountId: 5,
     });
     expect(result).toBe(
-      'https://app.chatwoot.com/app/accounts/5/conversations/14428/14902/Conversation',
+      'https://app.channelx.au/app/accounts/5/conversations/14428/14902/Conversation',
     );
   });
 
@@ -103,16 +103,14 @@ describe('findConversationLinkFromPush', () => {
       primaryActorType: 'Message',
       primaryActor: { conversationId: 14429, id: 58731 },
     };
-    const installationUrl = 'https://app.chatwoot.com';
+    const installationUrl = 'https://app.channelx.au';
     const transformedNotification = transformNotification(notification);
     const result = findConversationLinkFromPush({
       notification: transformedNotification,
       installationUrl,
       currentAccountId: 1,
     });
-    expect(result).toBe(
-      'https://app.chatwoot.com/app/accounts/1/conversations/14429/58731/Message',
-    );
+    expect(result).toBe('https://app.channelx.au/app/accounts/1/conversations/14429/58731/Message');
   });
 
   it('should return conversation link if notification_type is conversation_mention', () => {
@@ -123,16 +121,14 @@ describe('findConversationLinkFromPush', () => {
       primaryActorType: 'Message',
       primaryActor: { conversationId: 14428, id: 58725 },
     };
-    const installationUrl = 'https://app.chatwoot.com';
+    const installationUrl = 'https://app.channelx.au';
     const transformedNotification = transformNotification(notification);
     const result = findConversationLinkFromPush({
       notification: transformedNotification,
       installationUrl,
       currentAccountId: 1,
     });
-    expect(result).toBe(
-      'https://app.chatwoot.com/app/accounts/1/conversations/14428/58725/Message',
-    );
+    expect(result).toBe('https://app.channelx.au/app/accounts/1/conversations/14428/58725/Message');
   });
 
   it('should return conversation link if notification_type is participating_conversation_new_message', () => {
@@ -143,16 +139,14 @@ describe('findConversationLinkFromPush', () => {
       primaryActorType: 'Message',
       primaryActor: { conversationId: 14427, id: 58712 },
     };
-    const installationUrl = 'https://app.chatwoot.com';
+    const installationUrl = 'https://app.channelx.au';
     const transformedNotification = transformNotification(notification);
     const result = findConversationLinkFromPush({
       notification: transformedNotification,
       installationUrl,
       currentAccountId: 1,
     });
-    expect(result).toBe(
-      'https://app.chatwoot.com/app/accounts/1/conversations/14427/58712/Message',
-    );
+    expect(result).toBe('https://app.channelx.au/app/accounts/1/conversations/14427/58712/Message');
   });
 
   it('should return nothing if notification_type is not valid', () => {
@@ -163,7 +157,7 @@ describe('findConversationLinkFromPush', () => {
       primaryActorType: 'Message',
       primaryActor: { conversationId: 14427, id: 58712 },
     };
-    const installationUrl = 'https://app.chatwoot.com';
+    const installationUrl = 'https://app.channelx.au';
     const transformedNotification = transformNotification(notification);
     const result = findConversationLinkFromPush({
       notification: transformedNotification,

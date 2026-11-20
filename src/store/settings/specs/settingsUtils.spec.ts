@@ -7,40 +7,40 @@ import {
 
 describe('extractDomain', () => {
   it.each([
-    ['app.chatwoot.com', 'app.chatwoot.com'],
-    ['https://app.chatwoot.com', 'app.chatwoot.com'],
-    ['http://app.chatwoot.com', 'app.chatwoot.com'],
-    ['HTTPS://App.Chatwoot.COM', 'app.chatwoot.com'],
+    ['app.channelx.au', 'app.channelx.au'],
+    ['https://app.channelx.au', 'app.channelx.au'],
+    ['http://app.channelx.au', 'app.channelx.au'],
+    ['HTTPS://App.ChannelX.AU', 'app.channelx.au'],
   ])('reads the host of %s', (url, expected) => {
     expect(extractDomain({ url })).toBe(expected);
   });
 
   it.each([
-    ['https://app.chatwoot.com/', 'app.chatwoot.com'],
-    ['app.chatwoot.com/', 'app.chatwoot.com'],
-    ['https://app.chatwoot.com/app/accounts/1', 'app.chatwoot.com'],
-    ['app.chatwoot.com/app/accounts/1', 'app.chatwoot.com'],
-    ['https://app.chatwoot.com/#/app', 'app.chatwoot.com'],
+    ['https://app.channelx.au/', 'app.channelx.au'],
+    ['app.channelx.au/', 'app.channelx.au'],
+    ['https://app.channelx.au/app/accounts/1', 'app.channelx.au'],
+    ['app.channelx.au/app/accounts/1', 'app.channelx.au'],
+    ['https://app.channelx.au/#/app', 'app.channelx.au'],
   ])('drops the path of %s', (url, expected) => {
     expect(extractDomain({ url })).toBe(expected);
   });
 
   it.each([
-    ['https://chatwoot.example.com:3000', 'chatwoot.example.com:3000'],
-    ['chatwoot.example.com:3000', 'chatwoot.example.com:3000'],
-    ['https://chatwoot.example.com:3000/', 'chatwoot.example.com:3000'],
+    ['https://channelx.example.com:3000', 'channelx.example.com:3000'],
+    ['channelx.example.com:3000', 'channelx.example.com:3000'],
+    ['https://channelx.example.com:3000/', 'channelx.example.com:3000'],
   ])('keeps the port of %s', (url, expected) => {
     expect(extractDomain({ url })).toBe(expected);
   });
 
   it('keeps a www host, which is a different host from the bare domain', () => {
-    expect(extractDomain({ url: 'https://www.chatwoot.com' })).toBe('www.chatwoot.com');
+    expect(extractDomain({ url: 'https://www.channelx.au' })).toBe('www.channelx.au');
   });
 
   it.each([
-    ['   https://app.chatwoot.com', 'app.chatwoot.com'],
-    ['  app.chatwoot.com  ', 'app.chatwoot.com'],
-    ['https://app.chatwoot.com\n', 'app.chatwoot.com'],
+    ['   https://app.channelx.au', 'app.channelx.au'],
+    ['  app.channelx.au  ', 'app.channelx.au'],
+    ['https://app.channelx.au\n', 'app.channelx.au'],
   ])('drops the whitespace around %j', (url, expected) => {
     expect(extractDomain({ url })).toBe(expected);
   });
@@ -50,7 +50,7 @@ describe('extractDomain', () => {
   });
 
   it('returns unparseable input for the validator to reject', () => {
-    expect(extractDomain({ url: 'app chatwoot com' })).toBe('app chatwoot com');
+    expect(extractDomain({ url: 'app channelx au' })).toBe('app channelx au');
   });
 
   it.each([
@@ -68,8 +68,8 @@ describe('extractDomain', () => {
 
 describe('buildWebSocketUrl', () => {
   it.each([
-    ['app.chatwoot.com', 'wss://app.chatwoot.com/cable'],
-    ['chatwoot.example.com:3000', 'wss://chatwoot.example.com:3000/cable'],
+    ['app.channelx.au', 'wss://app.channelx.au/cable'],
+    ['channelx.example.com:3000', 'wss://channelx.example.com:3000/cable'],
   ])('builds the cable endpoint for %s', (host, expected) => {
     expect(buildWebSocketUrl(host)).toBe(expected);
   });
@@ -80,28 +80,28 @@ describe('repairPersistedWebSocketUrl', () => {
 
   it('rebuilds a websocket URL that kept the scheme of the configured value', () => {
     const state = stateWith({
-      baseUrl: 'app.chatwoot.com',
-      installationUrl: 'https://app.chatwoot.com/',
-      webSocketUrl: 'wss://https://app.chatwoot.com/cable',
+      baseUrl: 'app.channelx.au',
+      installationUrl: 'https://app.channelx.au/',
+      webSocketUrl: 'wss://https://app.channelx.au/cable',
     });
 
     expect(repairPersistedWebSocketUrl(state).settings).toEqual({
-      baseUrl: 'app.chatwoot.com',
-      installationUrl: 'https://app.chatwoot.com/',
-      webSocketUrl: 'wss://app.chatwoot.com/cable',
+      baseUrl: 'app.channelx.au',
+      installationUrl: 'https://app.channelx.au/',
+      webSocketUrl: 'wss://app.channelx.au/cable',
     });
   });
 
   it('leaves the rest of the persisted state untouched', () => {
-    const state = stateWith({ baseUrl: 'app.chatwoot.com', webSocketUrl: 'wss://stale/cable' });
+    const state = stateWith({ baseUrl: 'app.channelx.au', webSocketUrl: 'wss://stale/cable' });
 
     expect(repairPersistedWebSocketUrl(state).auth).toEqual(state.auth);
   });
 
   it('returns the same state when the websocket URL already matches the host', () => {
     const state = stateWith({
-      baseUrl: 'app.chatwoot.com',
-      webSocketUrl: 'wss://app.chatwoot.com/cable',
+      baseUrl: 'app.channelx.au',
+      webSocketUrl: 'wss://app.channelx.au/cable',
     });
 
     expect(repairPersistedWebSocketUrl(state)).toBe(state);
@@ -116,15 +116,15 @@ describe('repairPersistedWebSocketUrl', () => {
 
 describe('checkValidUrl', () => {
   it('accepts an absolute URL', () => {
-    expect(checkValidUrl({ url: 'https://app.chatwoot.com/' })).toBe(true);
+    expect(checkValidUrl({ url: 'https://app.channelx.au/' })).toBe(true);
   });
 
   it('rejects a URL holding whitespace', () => {
-    expect(checkValidUrl({ url: 'https://   https://app.chatwoot.com/' })).toBe(false);
+    expect(checkValidUrl({ url: 'https://   https://app.channelx.au/' })).toBe(false);
   });
 
   it('rejects an unparseable URL', () => {
-    expect(checkValidUrl({ url: 'app.chatwoot.com' })).toBe(false);
+    expect(checkValidUrl({ url: 'app.channelx.au' })).toBe(false);
   });
 
   it('rejects an empty URL', () => {

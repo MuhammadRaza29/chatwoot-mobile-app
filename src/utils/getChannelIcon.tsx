@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  ChatwootIcon,
+  ChannelXIcon,
   WebsiteFilledIcon,
   MailFilledIcon,
   TelegramFilledIcon,
@@ -83,5 +83,5 @@ export const getChannelIcon = (channelType: Channel, medium: string, additionalT
     return <TiktokFilledIcon />;
   }
 
-  return <ChatwootIcon />;
+  return <ChannelXIcon />;
 };

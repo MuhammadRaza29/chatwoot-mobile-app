@@ -9,7 +9,7 @@ import { IOS_DESIGN } from '@/utils';
 
 import { PILL_SHADOW, useCallTheme } from '../constants/callTheme';
 import { CallSurface } from './CallSurface';
-import { ChatwootMark } from './ChatwootMark';
+import { ChannelXMark } from './ChannelXMark';
 
 type CallHeaderProps = {
   canMinimise: boolean;
@@ -49,7 +49,7 @@ export const CallHeader = ({ canMinimise, onMinimise }: CallHeaderProps) => {
           <CaretLeftGlyph color={CALL_INK} size={22} />
         </Pressable>
       ) : null}
-      <ChatwootMark size={20} />
+      <ChannelXMark size={20} />
       <Text
         numberOfLines={1}
         style={tailwind.style(

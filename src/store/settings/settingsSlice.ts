@@ -20,8 +20,8 @@ interface SettingsState {
   pushToken: string;
 }
 const initialState: SettingsState = {
-  baseUrl: 'app.chatwoot.com',
-  installationUrl: 'https://app.chatwoot.com/',
+  baseUrl: 'app.channelx.au',
+  installationUrl: 'https://app.channelx.au/',
   uiFlags: {
     isSettingUrl: false,
     isUpdating: false,
@@ -37,7 +37,7 @@ const initialState: SettingsState = {
     selected_push_flags: [],
     user_id: 0,
   },
-  webSocketUrl: 'wss://app.chatwoot.com/cable',
+  webSocketUrl: 'wss://app.channelx.au/cable',
   theme: 'system',
   version: '',
   pushToken: '',
