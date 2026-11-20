@@ -91,9 +91,8 @@ const LoginScreen = () => {
     }
   };
 
-  // TODO: Change this condition based on EE check
-  // Show SSO login button only if installation URL contains app.channelx.au
-  const showSsoLogin = installationUrl.includes('app.channelx.au');
+  // SSO login is disabled for ChannelX
+  const showSsoLogin = false;
 
   const openResetPassword = () => {
     navigation.navigate('ResetPassword' as never);
